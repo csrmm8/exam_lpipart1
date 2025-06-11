@@ -1,33 +1,39 @@
-# Exam PDF Interactivo
+# Examen tipo test LPIC-1 con corrección por IA
 
-Este repositorio permite subir un PDF de examen, extraer las preguntas y responderlas desde una interfaz web simple.
+Esta aplicación permite practicar preguntas tipo test y obtener corrección y explicación automática usando ChatGPT (OpenAI).
 
-## ¿Cómo funciona?
+## Instalación
 
-1. Sube un PDF de examen a través de la app web.
-2. La app extrae las preguntas del PDF.
-3. Responde las preguntas en la misma interfaz.
-4. (Opcional) Guarda tus respuestas en un archivo.
-
-## Requisitos
-
-- Python 3.8+
-- Instala las dependencias:
-  ```
-  pip install -r requirements.txt
-  ```
+1. Clona el repositorio y entra en la carpeta.
+2. Instala dependencias:
+    ```
+    pip install -r requirements.txt
+    ```
+3. Configura tu clave de OpenAI:
+    - Puedes ponerla en los [secrets de Streamlit](https://docs.streamlit.io/streamlit-community-cloud/deploy-your-app/secrets-management) o como variable de entorno:
+    ```
+    export OPENAI_API_KEY=tu_clave_aqui
+    ```
 
 ## Uso
 
-Ejecuta la aplicación con:
-```
-streamlit run app.py
-```
+1. Ejecuta la aplicación:
+    ```
+    streamlit run app.py
+    ```
+2. Responde las preguntas y presiona "Corregir con IA".
+3. La IA te indicará si tus respuestas son correctas, dará la respuesta correcta y explicaciones.
 
-Luego abre la URL que te indica Streamlit (usualmente http://localhost:8501).
+---
 
-## Estructura
+## Personalización
 
-- `app.py`: Código principal de la app.
-- `/pdfs/`: Carpeta para almacenar los PDFs subidos.
-- `requirements.txt`: Dependencias.
+- Puedes modificar o añadir preguntas en el array `questions` de `app.py`.
+- Para más preguntas, se recomienda cargarlas desde un archivo `.json`.
+
+---
+
+## Notas
+
+- Necesitas una cuenta de OpenAI y una clave API válida.
+- El modelo por defecto es `gpt-3.5-turbo`. Puedes cambiarlo a `gpt-4` si tienes acceso.
